@@ -52,9 +52,14 @@ class ApiServices {
   /// Fetches a list of products from the API.
   ///
   /// Returns a `FutureResult` containing a list of `Product` objects or an error.
-  FutureResult<List<Product>> fetchProducts() {
+  FutureResult<List<Product>> fetchProducts({String? category}) {
     return _fetchData<List<Product>>(
-      fetchFunction: () => _fakeStoreApi.fetchProducts(ApiConfig.products),
+      fetchFunction:
+          () => _fakeStoreApi.fetchProducts(
+            category == null
+                ? ApiConfig.products
+                : '${ApiConfig.products}$category',
+          ),
     );
   }
 
