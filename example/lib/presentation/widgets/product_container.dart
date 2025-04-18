@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:fake_store_api_package/domain/models/product_entity.dart';
 
 import '../../config/design/tokens.dart';
+import '../../domain/models/product_entity.dart';
 
 /// This file defines the `ProductContainer` widget, which is used to display detailed
 /// information about a product in a styled container.

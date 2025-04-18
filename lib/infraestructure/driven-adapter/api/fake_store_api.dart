@@ -4,7 +4,6 @@ import 'dart:convert';
 import 'package:fake_store_api_package/config/constants/api_config.dart';
 import 'package:fake_store_api_package/infraestructure/helppers/mappers.dart';
 
-import '../../../domain/models.dart';
 import '../../../errors/index_errors.dart';
 
 /// This class is responsible for interacting with the FakeStoreAPI.
@@ -40,10 +39,9 @@ class FakeStoreApi {
   /// Returns a list of domain models of type `T`.
   ///
   /// Throws a `FetchFakeStoreException` if the API request fails.
-  Future<List<T>> _fetchData<T, F>({
+  Future<List<F>> _fetchData<F>({
     required String endpoint,
     required F Function(Map<String, dynamic>) fromJson,
-    required T Function(F) mapper,
   }) async {
     // Construct the URI for the API endpoint.
     final uri = Uri.parse('$baseUrl$endpoint');
@@ -58,7 +56,7 @@ class FakeStoreApi {
       final List<F> fakeStoreItems =
           jsonList.map((json) => fromJson(json)).toList();
 
-      return fakeStoreItems.map((item) => mapper(item)).toList();
+      return fakeStoreItems;
     } else {
       // If the request fails, throw an exception with an appropriate error message.
       throw FetchFakeStoreException(
@@ -73,12 +71,8 @@ class FakeStoreApi {
   /// - [endpoint]: The API endpoint for fetching products.
   ///
   /// Returns a list of `Product` objects.
-  Future<List<Product>> fetchProducts(String endpoint) async {
-    return _fetchData<Product, Products>(
-      endpoint: endpoint,
-      fromJson: Products.fromJson,
-      mapper: ProductMapper.productFakeStoreToProduct,
-    );
+  Future<List<ProductsFakeStore>> fetchProducts(String endpoint) async {
+    return _fetchData(endpoint: endpoint, fromJson: ProductsFakeStore.fromJson);
   }
 
   /// Fetches a list of carts from the API.
@@ -86,11 +80,10 @@ class FakeStoreApi {
   /// - [endpoint]: The API endpoint for fetching carts.
   ///
   /// Returns a list of `Carts` objects.
-  Future<List<Carts>> fetchCart(String endpoint) async {
-    return _fetchData<Carts, CartsFakeStore>(
+  Future<List<CartsFakeStore>> fetchCart(String endpoint) async {
+    return _fetchData<CartsFakeStore>(
       endpoint: endpoint,
       fromJson: CartsFakeStore.fromJson,
-      mapper: CartsMapper.cartFakeStoreToCard,
     );
   }
 
@@ -99,11 +92,10 @@ class FakeStoreApi {
   /// - [endpoint]: The API endpoint for fetching users.
   ///
   /// Returns a list of `User` objects.
-  Future<List<User>> fetchUser(String endpoint) async {
-    return _fetchData<User, UsersFakeStore>(
+  Future<List<UsersFakeStore>> fetchUser(String endpoint) async {
+    return _fetchData<UsersFakeStore>(
       endpoint: endpoint,
       fromJson: UsersFakeStore.fromJson,
-      mapper: UsersMapper.userFakeStoreToUser,
     );
   }
 }

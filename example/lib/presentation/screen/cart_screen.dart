@@ -1,4 +1,5 @@
-import 'package:fake_store_api_package/domain/models/cart_entity.dart';
+import 'package:example/domain/models.dart';
+import 'package:example/infraestructure/helppers/mappers.dart';
 import 'package:fake_store_api_package/methods/api_services.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -57,7 +58,10 @@ class _CartScreenState extends State<CartScreen> {
       },
       (carts) {
         setState(() {
-          _carts = carts;
+          _carts =
+              carts
+                  .map((cart) => CartsMapper.cartFakeStoreToCard(cart))
+                  .toList();
           _isLoading = false;
         });
       },

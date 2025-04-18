@@ -1,5 +1,6 @@
-import 'package:fake_store_api_package/domain/models/cart_entity.dart';
 import 'package:fake_store_api_package/infraestructure/helppers/mappers/cards/carts_fake_store.dart';
+
+import '../../../domain/models/cart_entity.dart';
 
 /// A mapper class for converting between [CartsFakeStore] and [Carts] entities.
 class CartsMapper {

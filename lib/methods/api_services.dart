@@ -1,8 +1,8 @@
 import 'package:dartz/dartz.dart';
 import 'package:fake_store_api_package/config/constants/api_config.dart';
-import 'package:fake_store_api_package/domain/models.dart';
 import 'package:fake_store_api_package/errors/index_errors.dart';
 import 'package:fake_store_api_package/infraestructure/driven-adapter/index.dart';
+import 'package:fake_store_api_package/infraestructure/helppers/mappers.dart';
 
 import '../typedef/typedef.dart';
 
@@ -52,8 +52,8 @@ class ApiServices {
   /// Fetches a list of products from the API.
   ///
   /// Returns a `FutureResult` containing a list of `Product` objects or an error.
-  FutureResult<List<Product>> fetchProducts({String? category}) {
-    return _fetchData<List<Product>>(
+  FutureResult<List<ProductsFakeStore>> fetchProducts({String? category}) {
+    return _fetchData<List<ProductsFakeStore>>(
       fetchFunction:
           () => _fakeStoreApi.fetchProducts(
             category == null
@@ -66,8 +66,8 @@ class ApiServices {
   /// Fetches a list of carts from the API.
   ///
   /// Returns a `FutureResult` containing a list of `Carts` objects or an error.
-  FutureResult<List<Carts>> fetchCarts() {
-    return _fetchData<List<Carts>>(
+  FutureResult<List<CartsFakeStore>> fetchCarts() {
+    return _fetchData<List<CartsFakeStore>>(
       fetchFunction: () => _fakeStoreApi.fetchCart(ApiConfig.carts),
     );
   }
@@ -75,8 +75,8 @@ class ApiServices {
   /// Fetches a list of users from the API.
   ///
   /// Returns a `FutureResult` containing a list of `User` objects or an error.
-  FutureResult<List<User>> fetchUsers() {
-    return _fetchData<List<User>>(
+  FutureResult<List<UsersFakeStore>> fetchUsers() {
+    return _fetchData<List<UsersFakeStore>>(
       fetchFunction: () => _fakeStoreApi.fetchUser(ApiConfig.users),
     );
   }
@@ -87,11 +87,11 @@ class ApiServices {
   /// - [password]: The password of the user.
   ///
   /// Returns a `FutureResult` containing an `Auth` object with the authentication token or an error.
-  FutureResult<Auth> fetchAuth({
+  FutureResult<TokenFakeStore> fetchAuth({
     required String username,
     required String password,
   }) {
-    return _fetchData<Auth>(
+    return _fetchData<TokenFakeStore>(
       fetchFunction:
           () => _authFakeStoreApi.authentication(
             username: username,

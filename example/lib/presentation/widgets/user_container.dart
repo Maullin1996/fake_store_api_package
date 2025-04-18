@@ -1,7 +1,7 @@
+import 'package:example/domain/models/user_entity.dart';
 import 'package:flutter/material.dart';
 
 import 'package:example/config/design/tokens.dart';
-import 'package:fake_store_api_package/domain/models/user_entity.dart';
 
 /// This file defines the `UserContainer` widget, which is used to display detailed
 /// information about a user in a styled container.

@@ -1,4 +1,4 @@
-import 'package:fake_store_api_package/domain/models.dart';
+import 'package:example/domain/models/auth_entity.dart';
 import 'package:fake_store_api_package/infraestructure/helppers/mappers/auth/auth_fake_store.dart';
 
 class AuthMapper {

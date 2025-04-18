@@ -1,9 +1,11 @@
 import 'package:example/presentation/widgets/user_container.dart';
-import 'package:fake_store_api_package/domain/models/user_entity.dart';
 import 'package:fake_store_api_package/methods/api_services.dart';
 import 'package:flutter/material.dart';
 import 'package:example/config/design/tokens.dart';
 import 'package:go_router/go_router.dart';
+
+import '../../domain/models/user_entity.dart';
+import '../../infraestructure/helppers/users/users_mapper.dart';
 
 /// This file demonstrates the usage of the `fetchUsers()` method from the `ApiServices` class.
 /// It fetches a list of users from the API and displays their information in a styled list.
@@ -56,7 +58,10 @@ class _UserScreenState extends State<UserScreen> {
       },
       (users) {
         setState(() {
-          _users = users;
+          _users =
+              users
+                  .map((user) => UsersMapper.userFakeStoreToUser(user))
+                  .toList();
           _isLoading = false;
         });
       },

@@ -1,9 +1,10 @@
-import 'package:fake_store_api_package/domain/models/product_entity.dart';
+import 'package:example/domain/models/product_entity.dart';
 import 'package:fake_store_api_package/methods/api_services.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:example/config/design/tokens.dart';
 
+import '../../infraestructure/helppers/products/product_mapper.dart';
 import '../widgets/index.dart';
 
 /// This file demonstrates the usage of the `fetchProducts()` method from the `ApiServices` class.
@@ -57,7 +58,13 @@ class _ProductScreenState extends State<ProductScreen> {
       },
       (products) {
         setState(() {
-          _products = products;
+          _products =
+              products
+                  .map(
+                    (products) =>
+                        ProductMapper.productFakeStoreToProduct(products),
+                  )
+                  .toList();
           _isLoading = false;
         });
       },

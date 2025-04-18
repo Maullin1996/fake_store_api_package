@@ -4,7 +4,6 @@ import 'dart:convert';
 import 'package:fake_store_api_package/config/constants/api_config.dart';
 import 'package:fake_store_api_package/errors/index_errors.dart';
 
-import '../../../domain/models.dart';
 import '../../helppers/mappers.dart';
 
 /// This class is responsible for handling authentication requests to the FakeStoreAPI.
@@ -39,7 +38,7 @@ class AuthFakeStoreApi {
   /// Returns an `Auth` object containing the authentication token if the request is successful.
   ///
   /// Throws a `FetchFakeStoreException` if the API request fails.
-  Future<Auth> authentication({
+  Future<TokenFakeStore> authentication({
     required String username,
     required String password,
   }) async {
@@ -57,7 +56,7 @@ class AuthFakeStoreApi {
       final authToken = TokenFakeStore.fromJson(
         jsonDecode(response.body) as Map<String, dynamic>,
       );
-      return AuthMapper.authFakeStoreToAuth(authToken);
+      return authToken;
     } else {
       // If the request fails, throw a `FetchFakeStoreException` with an appropriate error message.
       throw FetchFakeStoreException(

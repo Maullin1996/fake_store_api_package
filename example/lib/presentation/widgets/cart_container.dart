@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:fake_store_api_package/domain/models/cart_entity.dart';
 
 import '../../config/design/tokens.dart';
+import '../../domain/models/cart_entity.dart';
 
 /// This file defines the `CartContainer` widget, which is used to display detailed
 /// information about a cart in a styled container.
