@@ -55,102 +55,91 @@ class UserContainer extends StatelessWidget {
           SizedBox(height: AppSpacing.xlarge),
 
           // User details displayed in two columns
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Left column: phone, email, username, and password
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+              Row(
                 children: [
-                  Row(
-                    children: [
-                      Icon(
-                        Icons.phone_iphone_outlined,
-                        color: AppColors.primary,
-                      ),
-                      SizedBox(width: AppSpacing.xmedium),
-                      Text(userInformation.phone, style: textTheme.bodyMedium),
-                    ],
-                  ),
-                  SizedBox(height: AppSpacing.small),
-                  Row(
-                    children: [
-                      Icon(Icons.email, color: AppColors.primary),
-                      SizedBox(width: AppSpacing.xmedium),
-                      Text(userInformation.email, style: textTheme.bodyMedium),
-                    ],
-                  ),
-                  SizedBox(height: AppSpacing.small),
-                  Row(
-                    children: [
-                      Icon(Icons.person, color: AppColors.primary),
-                      SizedBox(width: AppSpacing.xmedium),
-                      Text(
-                        userInformation.username,
-                        style: textTheme.bodyMedium,
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: AppSpacing.small),
-                  Row(
-                    children: [
-                      Icon(Icons.password, color: AppColors.primary),
-                      SizedBox(width: AppSpacing.xmedium),
-                      Text(
-                        userInformation.password,
-                        style: textTheme.bodyMedium,
-                      ),
-                    ],
+                  Icon(Icons.phone_iphone_outlined, color: AppColors.primary),
+                  SizedBox(width: AppSpacing.xmedium),
+                  Text(userInformation.phone, style: textTheme.bodyMedium),
+                ],
+              ),
+              SizedBox(height: AppSpacing.small),
+              Row(
+                children: [
+                  Icon(Icons.email, color: AppColors.primary),
+                  SizedBox(width: AppSpacing.xmedium),
+                  Text(
+                    userInformation.email,
+                    style: textTheme.bodyMedium,
+                    overflow: TextOverflow.ellipsis,
                   ),
                 ],
               ),
-
-              // Right column: ID, city, street, and address number
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+              SizedBox(height: AppSpacing.small),
+              Row(
                 children: [
-                  Row(
-                    children: [
-                      Icon(Icons.numbers, color: AppColors.primary),
-                      SizedBox(width: AppSpacing.xmedium),
-                      Text(
-                        userInformation.id.toString(),
-                        style: textTheme.bodyMedium,
-                      ),
-                    ],
+                  Icon(Icons.person, color: AppColors.primary),
+                  SizedBox(width: AppSpacing.xmedium),
+                  Text(userInformation.username, style: textTheme.bodyMedium),
+                ],
+              ),
+              SizedBox(height: AppSpacing.small),
+              Row(
+                children: [
+                  Icon(Icons.password, color: AppColors.primary),
+                  SizedBox(width: AppSpacing.xmedium),
+                  Text(userInformation.password, style: textTheme.bodyMedium),
+                ],
+              ),
+            ],
+          ),
+
+          // Right column: ID, city, street, and address number
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  Icon(Icons.numbers, color: AppColors.primary),
+                  SizedBox(width: AppSpacing.xmedium),
+                  Text(
+                    userInformation.id.toString(),
+                    style: textTheme.bodyMedium,
                   ),
-                  SizedBox(height: AppSpacing.small),
-                  Row(
-                    children: [
-                      Icon(Icons.location_city, color: AppColors.primary),
-                      SizedBox(width: AppSpacing.xmedium),
-                      Text(
-                        userInformation.address.city,
-                        style: textTheme.bodyMedium,
-                      ),
-                    ],
+                ],
+              ),
+              SizedBox(height: AppSpacing.small),
+              Row(
+                children: [
+                  Icon(Icons.location_city, color: AppColors.primary),
+                  SizedBox(width: AppSpacing.xmedium),
+                  Text(
+                    userInformation.address.city,
+                    style: textTheme.bodyMedium,
                   ),
-                  SizedBox(height: AppSpacing.small),
-                  Row(
-                    children: [
-                      Icon(Icons.location_on, color: AppColors.primary),
-                      SizedBox(width: AppSpacing.xmedium),
-                      Text(
-                        userInformation.address.street,
-                        style: textTheme.bodyMedium,
-                      ),
-                    ],
+                ],
+              ),
+              SizedBox(height: AppSpacing.small),
+              Row(
+                children: [
+                  Icon(Icons.location_on, color: AppColors.primary),
+                  SizedBox(width: AppSpacing.xmedium),
+                  Text(
+                    userInformation.address.street,
+                    style: textTheme.bodyMedium,
                   ),
-                  SizedBox(height: AppSpacing.small),
-                  Row(
-                    children: [
-                      Icon(Icons.directions, color: AppColors.primary),
-                      SizedBox(width: AppSpacing.xmedium),
-                      Text(
-                        userInformation.address.number.toString(),
-                        style: textTheme.bodyMedium,
-                      ),
-                    ],
+                ],
+              ),
+              SizedBox(height: AppSpacing.small),
+              Row(
+                children: [
+                  Icon(Icons.directions, color: AppColors.primary),
+                  SizedBox(width: AppSpacing.xmedium),
+                  Text(
+                    userInformation.address.number.toString(),
+                    style: textTheme.bodyMedium,
                   ),
                 ],
               ),
