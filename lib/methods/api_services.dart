@@ -2,7 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:fake_store_api_package/config/constants/api_config.dart';
 import 'package:fake_store_api_package/errors/index_errors.dart';
 import 'package:fake_store_api_package/infraestructure/driven-adapter/index.dart';
-import 'package:fake_store_api_package/infraestructure/helppers/mappers.dart';
+import 'package:fake_store_api_package/infraestructure/helpers/mappers.dart';
 
 import '../typedef/typedef.dart';
 

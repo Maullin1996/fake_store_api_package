@@ -9,7 +9,7 @@ enum FetchFakeStoreError {
   /// Indicates an unknown error.
   unKnown,
 
-  /// Indicate a prblem in the network conection
+  /// Indicate a problem in the network conection
   networkError,
 }
 

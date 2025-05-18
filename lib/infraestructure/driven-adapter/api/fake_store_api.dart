@@ -2,7 +2,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 import 'package:fake_store_api_package/config/constants/api_config.dart';
-import 'package:fake_store_api_package/infraestructure/helppers/mappers.dart';
+import 'package:fake_store_api_package/infraestructure/helpers/mappers.dart';
 
 import '../../../errors/index_errors.dart';
 

@@ -4,7 +4,7 @@ import 'dart:convert';
 import 'package:fake_store_api_package/config/constants/api_config.dart';
 import 'package:fake_store_api_package/errors/index_errors.dart';
 
-import '../../helppers/mappers.dart';
+import '../../helpers/mappers.dart';
 
 /// This class is responsible for handling authentication requests to the FakeStoreAPI.
 /// It provides methods to authenticate users by sending their credentials to the API.

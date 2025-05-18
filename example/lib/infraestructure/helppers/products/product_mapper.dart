@@ -1,5 +1,5 @@
 import 'package:example/domain/models/product_entity.dart';
-import 'package:fake_store_api_package/infraestructure/helppers/mappers/products/products_fake_store.dart';
+import 'package:fake_store_api_package/infraestructure/helpers/mappers/products/products_fake_store.dart';
 
 /// A mapper class for converting between [ProductsFakeStore] and [Product] entities.
 class ProductMapper {
