@@ -158,5 +158,11 @@ void main() {
       expect(users.first.apiAddress.zipcode, '12926-3874');
       expect(users.first.apiName.lastname, 'doe');
     });
+    test('throws exception if call fails', () async {
+      expect(
+        () async => await fakeStoreApi.fetchUser('/user'),
+        throwsA(isA<FetchFakeStoreException>()),
+      );
+    });
   });
 }
