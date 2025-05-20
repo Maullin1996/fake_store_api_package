@@ -26,7 +26,7 @@ void main() {
     );
   });
   test('correctly parses valid JSON for the user response', () {
-    // Arrange
+    // Act
     // Mock the API response
     final mockResponse = {
       'address': {
@@ -45,6 +45,7 @@ void main() {
     //Act
     final user = UsersFakeStore.fromJson(mockResponse);
     //Assert
+    expect(user, isA<UsersFakeStore>());
     //Address
     expect(user.apiAddress.city, 'City');
     expect(user.apiAddress.street, 'Street');
@@ -59,5 +60,65 @@ void main() {
     expect(user.username, 'username');
     expect(user.password, 'password');
     expect(user.phone, '633554556');
+  });
+  test('throws when a required field is null', () {
+    // Act
+    final mockResponse = {
+      'address': {
+        'city': 'City',
+        'street': 'Street',
+        'number': 123,
+        'zipcode': '12345',
+      },
+      'id': null,
+      'email': 'email@gmail.com',
+      'username': 'username',
+      'password': 'password',
+      'name': {'firstname': 'firstname', 'lastname': 'lastname'},
+      'phone': '633554556',
+    };
+
+    //Assert
+    expect(
+      () => UsersFakeStore.fromJson(mockResponse),
+      throwsA(isA<TypeError>()),
+    );
+  });
+  test('serializes CartsFakeStore to correct JSON', () {
+    // Act
+    // Mock the API response
+    final user = UsersFakeStore(
+      apiAddress: ApiAddress(
+        city: 'City',
+        street: 'Street',
+        number: 123,
+        zipcode: '12345',
+      ),
+      id: 1,
+      email: 'email@gmail.com',
+      username: 'username',
+      password: 'password',
+      apiName: ApiName(firstname: 'firstname', lastname: 'lastname'),
+      phone: '633554556',
+    );
+
+    // Arrange
+    final json = user.toJson();
+
+    //Assert
+    expect(json, {
+      'address': {
+        'city': 'City',
+        'street': 'Street',
+        'number': 123,
+        'zipcode': '12345',
+      },
+      'id': 1,
+      'email': 'email@gmail.com',
+      'username': 'username',
+      'password': 'password',
+      'name': {'firstname': 'firstname', 'lastname': 'lastname'},
+      'phone': '633554556',
+    });
   });
 }

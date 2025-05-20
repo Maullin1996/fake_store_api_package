@@ -41,4 +41,29 @@ void main() {
     expect(product.category, 'category 1');
     expect(product.image, 'image1');
   });
+
+  test('serializes CartsFakeStore to correct JSON', () {
+    // Act
+    final product = ProductsFakeStore(
+      id: 1,
+      title: 'Product 1',
+      price: 10.0,
+      description: 'Description 1',
+      category: 'category 1',
+      image: 'image1',
+    );
+
+    //Arrenge
+    final json = product.toJson();
+
+    // Assert
+    expect(json, {
+      'id': 1,
+      'title': 'Product 1',
+      'price': 10.0,
+      'description': 'Description 1',
+      'category': 'category 1',
+      'image': 'image1',
+    });
+  });
 }

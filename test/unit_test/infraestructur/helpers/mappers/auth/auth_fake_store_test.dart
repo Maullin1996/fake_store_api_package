@@ -22,4 +22,14 @@ void main() {
     expect(auth.token, 'token');
     expect(auth, isA<TokenFakeStore>());
   });
+  test('toJson returns correct map', () {
+    // Arrange
+    final tokenStore = TokenFakeStore(token: '12345');
+
+    // Act
+    final json = tokenStore.toJson();
+
+    // Assert
+    expect(json, {'token': '12345'});
+  });
 }
