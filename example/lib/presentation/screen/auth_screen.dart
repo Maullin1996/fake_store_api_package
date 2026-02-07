@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:example/presentation/helpers/validate_input.dart';
-import 'package:fake_store_api_package/methods/api_services.dart';
+import 'package:fake_store_api_package/fake_store_api_package.dart';
 import 'package:go_router/go_router.dart';
 import 'package:example/presentation/widgets/custom_text_form_field.dart';
 

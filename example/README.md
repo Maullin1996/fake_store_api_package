@@ -1,16 +1,22 @@
-# example
+# Fake Store API Package Example
 
-A new Flutter project.
+This Flutter app demonstrates how to use the `fake_store_api_package` to read
+data from the Fake Store API and display it on screen.
 
-## Getting Started
+## How To Run
 
-This project is a starting point for a Flutter application.
+From the repository root:
 
-A few resources to get you started if this is your first Flutter project:
+```sh
+flutter pub get
+cd example
+flutter pub get
+flutter run
+```
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## What You Can Test
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Products list
+- Carts list
+- Users list
+- Auth token retrieval

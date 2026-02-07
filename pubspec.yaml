@@ -1,5 +1,5 @@
 name: fake_store_api_package
-description: "With project you can create a fake api server with a few lines of code"
+description: "Dart/Flutter package to consume Fake Store API (products, carts, users, auth) with typed models and error handling."
 version: 0.0.1
 homepage: null
 

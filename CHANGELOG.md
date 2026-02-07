@@ -1,3 +1,6 @@
 ## 0.0.1
 
-* TODO: Describe initial release.
+* Exported public API entry point.
+* Updated README with repo install, quick start, and supported endpoints.
+* Added example README with run instructions.
+* Updated package description.

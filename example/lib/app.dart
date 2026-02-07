@@ -1,4 +1,4 @@
-import 'package:example/config/design/tokens.dart';
+import 'package:example/config/design/theme.dart';
 import 'package:example/config/routes/routes.dart';
 import 'package:flutter/material.dart';
 

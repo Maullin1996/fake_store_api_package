@@ -8,9 +8,10 @@ Add the following dependency to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  fake_store_api_package: 
-    git: 
-    ref: main
+  fake_store_api_package:
+    git:
+      url: https://github.com/Maullin1996/fake_store_api_package.git
+      ref: v0.0.1
 ```
 
 Then, run:
@@ -28,12 +29,35 @@ flutter pub get
 - Error handling using `dartz`
 - Example folder with screens demonstrating API usage
 
+## ⚡ Quick Start
+
+```dart
+import 'package:fake_store_api_package/fake_store_api_package.dart';
+
+final apiService = ApiServices();
+
+void loadProducts() async {
+  final result = await apiService.fetchProducts();
+  result.fold(
+    (failure) => print('Error: ${failure.message}'),
+    (products) => print('Products: ${products.length}'),
+  );
+}
+```
+
+## 🔗 Supported Endpoints
+
+- `/products`
+- `/carts`
+- `/users`
+- `/auth/login`
+
 ## 📌 Usage
 
 ### Import the package
 
 ```dart
-import 'package:fakestore_api/fakestore_api.dart';
+import 'package:fake_store_api_package/fake_store_api_package.dart';
 ```
 
 ### Initialize the API Service
@@ -106,7 +130,7 @@ This package includes an `example` folder with four screens demonstrating API us
 
 All API calls return a `FutureResult<T>` from `dartz`, which is either:
 - `Right<T>`: Contains the successful response data.
-- `Left<ApiError>`: Contains the error details.
+- `Left<Failure>`: Contains the error details.
 
 Use `.fold()` to handle both success and failure cases.
 

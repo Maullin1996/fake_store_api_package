@@ -1,5 +1,5 @@
 import 'package:example/domain/models/product_entity.dart';
-import 'package:fake_store_api_package/methods/api_services.dart';
+import 'package:fake_store_api_package/fake_store_api_package.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:example/config/design/tokens.dart';

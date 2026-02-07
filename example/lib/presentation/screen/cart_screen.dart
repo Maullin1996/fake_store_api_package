@@ -1,6 +1,6 @@
 import 'package:example/domain/models.dart';
 import 'package:example/infraestructure/helppers/mappers.dart';
-import 'package:fake_store_api_package/methods/api_services.dart';
+import 'package:fake_store_api_package/fake_store_api_package.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
